@@ -90,6 +90,8 @@ The application allows users to describe their desired playlist in plain English
 
 #### Using Docker
 
+You will need to add references to the .env files in your docker files.
+
 ```bash
 docker-compose up --build
 ```
@@ -121,7 +123,7 @@ docker-compose up --build
 3. Enter a playlist description (e.g., "energetic pop songs for a road trip")
 4. Click "Generate Playlist"
 5. Review the suggested tracks and playlist description
-6. Optionally save the playlist to your Spotify account
+6. Click "Open in spotify" to see your playlist in your Spotify account
 
 ### API Usage
 
@@ -131,30 +133,4 @@ You can also interact with the backend API directly:
 curl -X POST "http://localhost:8000/generate_playlist" \
      -H "Content-Type: application/json" \
      -d '{"user_input": "chill study music"}'
-```
-
-## Project Structure
-
-```
-.
-├── frontend/                # React TypeScript frontend
-│   ├── src/
-│   │   ├── components/      # React components
-│   │   ├── api/             # API helper functions
-│   │   ├── hooks/           # Custom React hooks
-│   │   ├── store/           # Zustand state management
-│   │   └── assets/          # Static assets
-│   ├── public/              # Public static files
-│   ├── package.json         # Frontend dependencies
-│   └── vite.config.ts       # Vite configuration
-├── src/                     # Python backend
-│   ├── app.py               # FastAPI server
-│   ├── main.py              # Playlist generation logic
-│   ├── llm_client.py        # OpenAI LLM client
-│   └── spotify_client.py    # Spotify API client
-├── static/                  # Legacy static files (if any)
-├── docker-compose.yml       # Docker Compose configuration
-├── Dockerfile               # Backend Docker configuration
-├── requirements.txt         # Python dependencies
-└── README.md                # This file
 ```
