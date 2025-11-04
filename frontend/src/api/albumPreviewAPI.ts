@@ -20,7 +20,7 @@ async function getSpotifyLinks(url: string): Promise<string[]> {
     const $ = cheerio.load(html);
     const scdnLinks = new Set();
 
-    $("*").each((i, element) => {
+    $("*").each((_i, element) => {
       if ("attribs" in element) {
         const attrs = element.attribs;
         Object.values(attrs).forEach((value) => {

@@ -57,6 +57,7 @@ class PlaylistRequest(BaseModel):
 
 @app.post("/generate_playlist")
 def create_playlist(request: PlaylistRequest):
+    """Generate a Spotify playlist using a prompt and a list of tracks."""
     try:
         trackList = json.loads(request.user_track_list)
         description, tracks, playlist_id = generate_playlist(
@@ -77,6 +78,7 @@ def create_playlist(request: PlaylistRequest):
 
 @app.get("/scrape", response_class=HTMLResponse)
 def scrape_previews(url: Annotated[str, Header()]):
+    """Scrape previews URLs"""
     print(url)
     resp = requests.get(url)
     return resp.text
@@ -95,7 +97,6 @@ SPOTIFY_REDIRECT_URI = os.getenv(
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
 
-# Minimum scopes to replicate typical login + personalization use-cases; adjust as needed
 SPOTIFY_SCOPES = "user-top-read playlist-modify-private playlist-modify-public"
 
 
@@ -151,7 +152,7 @@ class AuthCallbackResponse(BaseModel):
 def auth_callback(code: str, state: str | None = None):
     """
     Spotify redirects here with ?code= and optional ?state=. Exchange code for tokens.
-    Redirects to frontend with tokens in URL fragment for security.
+    Redirects to frontend with tokens in URL
     """
     if not SPOTIFY_CLIENT_ID or not SPOTIFY_CLIENT_SECRET or not SPOTIFY_REDIRECT_URI:
         return JSONResponse(
