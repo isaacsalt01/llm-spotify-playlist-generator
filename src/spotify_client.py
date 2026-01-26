@@ -66,8 +66,6 @@ class SpotifyClient:
                     for search_artist in track["artists"]:
                         if search_artist == artist:
                             return track["uri"]
-            print(f"Lost {track['name']} - {track['artists']}\n")
-
         return None
 
 

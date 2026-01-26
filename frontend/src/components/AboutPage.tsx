@@ -7,12 +7,15 @@ const AboutPage: React.FC = () => {
         <div className="col-md-8">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title">About Statify</h2>
+              <h2 className="card-title">About DJ-GPT</h2>
               <p className="card-text">
-                Statify is a modern web application that provides detailed
-                analytics and insights about your Spotify listening habits.
-                Built with React 18 and modern web technologies, it offers a
-                comprehensive view of your music preferences.
+                This website provides a form where users can enter a description
+                of the playlist they want, the website also fetches the users
+                top tracks and provides a nice UI for adding tracks to the
+                prompt. Those tracks will be included in the playlist and serve
+                as extra context for the LLM. The backend also creates the
+                playlist for you in Spotify and returns a link back to the
+                frontend to be opened when the generation is complete.
               </p>
 
               <h4>Features</h4>
