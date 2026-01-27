@@ -68,5 +68,5 @@ def generate_playlist(user_input, user_track_list=None, access_token=None):
 
 
 if __name__ == "__main__":
-    user_input = input("Enter playlist theme: ")
-    generate_playlist(user_input)
+    user_i = input("Enter playlist theme: ")
+    generate_playlist(user_i)
