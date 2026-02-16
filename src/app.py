@@ -8,8 +8,6 @@ import json
 import logging
 from typing import Annotated
 from urllib.parse import urlparse
-
-# New imports for Spotify OAuth (Authorization Code flow)
 import os
 import base64
 import secrets
@@ -23,12 +21,12 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# In-memory store for OAuth state tokens (use Redis in production)
+# In-memory store for OAuth state tokens
 # State tokens expire after 10 minutes
 oauth_state_store: dict[str, float] = {}
 STATE_EXPIRY_SECONDS = 600  # 10 minutes
 
-# Allowed hosts for the scrape endpoint (SSRF protection)
+# Allowed hosts for the scrape endpoint
 ALLOWED_SCRAPE_HOSTS = ["open.spotify.com", "i.scdn.co"]
 
 app = FastAPI(
