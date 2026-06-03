@@ -8,7 +8,7 @@ fastapi==0.128.0
 h11==0.16.0
 httpcore==1.0.9
 httpx==0.28.1
-idna==3.10
+idna==3.15
 jiter==0.11.0
 openai==2.1.0
 pydantic==2.11.10
