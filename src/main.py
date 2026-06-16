@@ -26,11 +26,12 @@ def generate_playlist(user_input, user_track_list=None, access_token=None):
 
     # Suggest tracks using LLM
     suggestions = llm.suggest_tracks(description, user_track_list)
+    print(suggestions.output)
 
     # Find correct output index for tracks
     index_tracks = 100
     for i, element in enumerate(suggestions.output):
-        if element.content is not None:
+        if element.content is not None and len(element.content) != 0:
             index_tracks = i
             break
 
